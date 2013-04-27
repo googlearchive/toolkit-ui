@@ -12,4 +12,4 @@ Toolkitchen Toolkit is based on a set of future technologies, including [Shadow 
 
 ## Tools & Testing
 
-For running tests or building minified files, consult the [tooling information](http://toolkitchen.github.com/tooling-strategy.html).
+For running tests or building minified files, consult the [tooling information](http://toolkitchen.github.io/tooling-strategy.html).
