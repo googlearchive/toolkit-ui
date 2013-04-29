@@ -1,0 +1,36 @@
+<element name="g-checkbox" on-tap="toggleCheck" attributes="checked">
+  <template>
+    <style>
+      @host {
+        :scope {
+          display: inline-block;
+          height: 32px;
+          width: 32px;
+          background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7));
+          background-color: rgba(0, 0, 0, 0.175);
+          border-radius: 4px;
+        }
+      }
+      #check {
+        height: 32px;
+        width: 32px;
+      }
+      #check[checked] {
+        background-image: url(../assets/check.png);
+        background-size: contain;
+      }
+    </style>
+    <div id="check" checked?="{{checked}}"></div>
+  </template>
+  <script>
+    Toolkit.register(this, {
+      checked: false,
+      ready: function() {
+        this.setAttribute('touch-action', 'none');
+      },
+      toggleCheck: function() {
+        this.checked = !this.checked;
+      }
+    });
+  </script>
+</element>

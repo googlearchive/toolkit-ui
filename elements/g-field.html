@@ -1,0 +1,81 @@
+<element name="g-field" attributes="label description invalid">
+  <template>
+    <style>
+      @host {
+        * {
+          display: block;
+          background-color: #f0f0ed;
+          margin: 20px 0px;
+        }
+      }
+      #label {
+        color: #7f7f7f;
+        display: inline-block;
+      }
+      #label[filled] {
+        margin-bottom: 15px;
+      }
+      #shadow {
+        display: -webkit-flex;
+        -webkit-flex-direction: column;
+      }
+      #description {
+        color: #7f7f7f;
+        font-size: 12pt;
+      }
+      /* validation warning */
+      #warning {
+        -webkit-mask: url(../assets/invalid.png);
+        -webkit-mask-size: contain;
+        background-color: #d84437;
+        display: inline-block;
+        height: 21pt;
+        width: 21pt;
+        line-height: 21pt;
+        vertical-align: middle;
+      }
+      #validate {
+        color: #d84437;
+      }
+      #item::-webkit-distributed(*) {
+        -webkit-flex: 1 auto;
+      }
+      /* input decoration */
+      #item::-webkit-distributed(input) {
+        border: 1px solid #bfbfbf;
+        padding: 1rem;
+        margin: 0;
+        background: white;
+      }
+      #item::-webkit-distributed(input + input) {
+        border-top-width: 0px;
+      }
+      #item::-webkit-distributed(input:focus) {
+        outline: 5px auto #448afd;
+      }
+      #item::-webkit-distributed(input:invalid) {
+        outline: 5px auto #d84437;
+      }
+      #item::-webkit-distributed(input::-webkit-input-placeholder) {
+        color: #bfbfbf;
+      }
+    </style>
+    <div id="shadow">
+      <span id="label" filled?="{{label}}">{{label}}</span>
+      <content id="item" select="*"></content>
+      <span id="description">{{description}}</span>
+      <span id="validate" hidden?="{{valid}}">
+        <span id="warning"></span>
+        <span>{{invalid}}</span>
+      </span>
+    </div>
+  </template>
+  <script>
+    Toolkit.register(this, {
+      label: '',
+      description: '',
+      invalid: '',
+      valid: true
+    });
+  </script>
+</element>
