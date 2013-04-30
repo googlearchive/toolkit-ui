@@ -33,6 +33,11 @@
   -webkit-justify-content: center;
   justify-content: center;
 }
+.flexbox.justify-between {
+  -moz-justify-content: space-between;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
 .flexbox.align-start {
   -moz-align-items: flex-start;
   -webkit-align-items: flex-start;
@@ -124,6 +129,11 @@
     -moz-justify-content: center;
     -webkit-justify-content: center;
     justify-content: center;
+  }
+  .flexbox.justify-between {
+    -moz-justify-content: space-between;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
   }
   .flexbox.align-start {
     -moz-align-items: flex-start;

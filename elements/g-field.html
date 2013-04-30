@@ -41,11 +41,13 @@
       }
       /* @polyfill #shadow > input:focus */
       #item::-webkit-distributed(input:focus) {
-        outline-color: #448afd;
+        outline: 2px solid #448afd;
+        outline-offset: -2px;
       }
       /* @polyfill #shadow > input:invalid */
       #item::-webkit-distributed(input:invalid) {
-        outline-color: #d84437;
+        outline: 2px solid #d84437;
+        outline-offset: -2px;
       }
       /* @polyfill #shadow > input:active */
       #item::-webkit-distributed(input:active) {
