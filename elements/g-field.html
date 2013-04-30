@@ -1,81 +1,71 @@
 <element name="g-field" attributes="label description invalid">
+  <link rel="stylesheet" href="css/g-flex-layout.css" />
   <template>
     <style>
       @host {
         * {
           display: block;
           background-color: #f0f0ed;
-          margin: 20px 0px;
+          padding: 1rem 0;
         }
       }
       #label {
-        color: #7f7f7f;
+        color: #999;
+        font-weight: bold;
         display: inline-block;
       }
       #label[filled] {
-        margin-bottom: 15px;
-      }
-      #shadow {
-        display: -webkit-flex;
-        -webkit-flex-direction: column;
+        margin-bottom: 1rem;
       }
       #description {
         color: #7f7f7f;
         font-size: 12pt;
       }
-      /* validation warning */
-      #warning {
-        -webkit-mask: url(../assets/invalid.png);
-        -webkit-mask-size: contain;
-        background-color: #d84437;
-        display: inline-block;
-        height: 21pt;
-        width: 21pt;
-        line-height: 21pt;
-        vertical-align: middle;
-      }
-      #validate {
-        color: #d84437;
-      }
+      /* @polyfill item > * */
       #item::-webkit-distributed(*) {
-        -webkit-flex: 1 auto;
+        -webkit-flex-basis: auto;
+        flex-basis: auto;
       }
       /* input decoration */
+      /* @polyfill #shadow > input */
       #item::-webkit-distributed(input) {
         border: 1px solid #bfbfbf;
+        color: #333;
         padding: 1rem;
         margin: 0;
-        background: white;
+        background: #fff;
       }
+      /* @polyfill #shadow > input + input */
       #item::-webkit-distributed(input + input) {
-        border-top-width: 0px;
+        border-top-width: 0;
       }
+      /* @polyfill #shadow > input:focus */
       #item::-webkit-distributed(input:focus) {
-        outline: 5px auto #448afd;
+        outline-color: #448afd;
       }
+      /* @polyfill #shadow > input:invalid */
       #item::-webkit-distributed(input:invalid) {
-        outline: 5px auto #d84437;
+        outline-color: #d84437;
       }
+      /* @polyfill #shadow > input:active */
+      #item::-webkit-distributed(input:active) {
+        background-color: #ededed;
+      }
+      /* @polyfill #shadow > input::-webkit-input-placeholder */
       #item::-webkit-distributed(input::-webkit-input-placeholder) {
         color: #bfbfbf;
       }
     </style>
-    <div id="shadow">
+    <div id="shadow" class="flexbox col">
       <span id="label" filled?="{{label}}">{{label}}</span>
-      <content id="item" select="*"></content>
+      <content id="item" flex select="*"></content>
       <span id="description">{{description}}</span>
-      <span id="validate" hidden?="{{valid}}">
-        <span id="warning"></span>
-        <span>{{invalid}}</span>
-      </span>
     </div>
   </template>
   <script>
     Toolkit.register(this, {
       label: '',
-      description: '',
-      invalid: '',
-      valid: true
+      description: ''
     });
   </script>
 </element>
