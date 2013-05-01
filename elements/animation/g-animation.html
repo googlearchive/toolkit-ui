@@ -15,6 +15,9 @@
       }
       return target;
     };
+    function toNumber(value, allowInfinity) {
+      return (allowInfinity && value === 'Infinity') ? Number.POSITIVE_INFINITY : Number(value);
+    };
     /**
      * WebAnimations module.
      * @module Animation
@@ -224,16 +227,17 @@
       get timingProps() {
         var props = {};
         var timing = {
-          fillMode: 'fillMode',
-          easing: 'timingFunction',
-          startDelay: 'startDelay',
-          iterationCount: 'iterationCount',
-          direction: 'direction',
-          duration: 'duration'
+          fillMode: {},
+          easing: {property: 'timingFunction'},
+          startDelay: {isNumber: true},
+          iterationCount: {isNumber: true, allowInfinity: true},
+          direction: {},
+          duration: {isNumber: true}
         };
         for (t in timing) {
           if (this[t] !== null) {
-            props[timing[t]] = this[t] === 'Infinity' ? Number.POSITIVE_INFINITY : this[t];
+            var name = timing[t].property || t;
+            props[name] = timing[t].isNumber ? toNumber(this[t], timing[t].allowInfinity) : this[t];
           }
         }
         return props;
