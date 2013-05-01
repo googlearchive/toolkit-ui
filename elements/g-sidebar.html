@@ -31,7 +31,9 @@
           -webkit-flex-flow: column;
           flex-direction: column;
           */
-          background: #333 url(images/ribbon_bg.png) repeat-y;
+          background: -webkit-linear-gradient(-60deg, #3d3d3d, #353535);
+          background: -moz-linear-gradient(-60deg, #3d3d3d, #353535);
+          background: linear-gradient(-60deg, #3d3d3d, #353535);
           box-shadow: inset -5px 0px 8px rgba(0, 0, 0, 0.4);
           color: white;
           font-size: 15px;
@@ -45,13 +47,9 @@
         padding-left: 30px;
         font-size: 21px;
         color: white;
-      }
-      
-      .sidebar-divider {
-        height: 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        border-top: 1px solid rgba(0, 0, 0, 0.4);
-        box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.025);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.02);
+        cursor: pointer;
       }
       
       .sidebar-content {
@@ -71,7 +69,6 @@
 
     </style>
     <div class="sidebar-label">{{label}}</div>
-    <div class="sidebar-divider"></div>
     <div class="sidebar-content">
       <content></content>
     </div>
