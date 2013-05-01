@@ -72,43 +72,51 @@
          * @property composite
          * @type String
          */
-        composite: null,
+        composite: 'replace',
         // timing
         /**
          * Animation duration in milliseconds or 'infinity'.
          * @property duration
          * @type Number|'Infinity'
          */
-        duration: null,
+        duration: 0.5,
         /**
          * "none", "forwards", "backwards" or "both".
          * @property fillMode
          * @type String
          */
-        fillMode: null,
+        fillMode: 'forwards',
         /**
          * A transition timing function.
          * @property easing
          * @type String
          */
-        easing: null,
+        easing: 'linear',
+        /**
+         * Number of iterations into the timed item in which to begin
+         * the animation. e.g. 0.5 will cause the animation to begin
+         * halfway through the first iteration.
+         * @property iterationStart
+         * @type Number
+         */
+        iterationStart: 0,
         /**
          * @property iterationCount
          * @type Number|'Infinity'
          */
-        iterationCount: null,
+        iterationCount: 1,
         /**
          * Start delay in milliseconds.
          * @property startDelay
          * @type Number
          */
-        startDelay: null,
+        startDelay: 0,
         /**
          * "normal", "reverse", "alternate" or "alternate-reverse".
          * @property direction
          * @type String
          */
-        direction: null,
+        direction: 'normal',
         /**
          * @property autoplay
          * @type Boolean
