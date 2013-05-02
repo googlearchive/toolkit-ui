@@ -117,7 +117,13 @@ license that can be found in the LICENSE file.
       if (!this.hasAttribute('tabindex')) {
         this.tabIndex = -1;
       }
-      this.refreshWhenInserted();
+    },
+    // since 
+    insertedCallback: function() {
+      this.enableTransitions(false);
+      this.indexChanged();
+      this.selectedChanged();
+      this.enableTransitions(true);
     },
     initPanels: function() {
       this.getPanels().forEach(function(p, i) {
@@ -135,7 +141,7 @@ license that can be found in the LICENSE file.
       var i = this.clampIndex(this.index);
       if (!this.canSelect(i)) {
         this.index = inOldValue;
-        console.log('cannot select')
+        //console.log('cannot select')
         return;
       }
       if (i != this.index) {
@@ -297,20 +303,6 @@ license that can be found in the LICENSE file.
         this.transitionNode.refresh();
         this.ensureSelectedShowing();
       }
-    },
-    // TODO(sorvell): need to refresh when inserted into DOM,
-    // in lieu of that event, do so in WebComponentsReady.
-    refreshWhenInserted: function() {
-      var ready = 'WebComponentsReady';
-      var fn = function() {
-        // process pending changes so panels don't transition when inserted.
-        dirtyCheck();
-        this.indexChanged();
-        this.selectedChanged();
-        this.enableTransitions(true);
-        document.removeEventListener(ready, fn);
-      }.bind(this);
-      document.addEventListener(ready, fn);
     },
     ensureSelectedShowing: function() {
       if (this.transitionNode.highlander) {
