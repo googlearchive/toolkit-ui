@@ -5,11 +5,11 @@
       publish: {
         targetSelector: '',
         duration: 0.5,
-        axis: 'x',
+        axis: '',
       },
       ready: function() {
         this.super();
-        this.axisChanged();
+        this.axis = 'x';
       },
       axisChanged: function() {
         this.generate();

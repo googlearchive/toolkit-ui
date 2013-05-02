@@ -48,7 +48,7 @@ license that can be found in the LICENSE file.
 -->
 <link rel="import" href="g-selection.html">
 <element name="g-selector" on-tap="activateHandler" attributes="selected multi
-         valueattr selectedClass selectedModel">
+         valueattr selectedClass selectedModel notap">
   <template>
     <g-selection id="selection" multi="{{multi}}" on-select="selectionSelect"></g-selection>
     <content id="items" select="*"></content>
@@ -116,19 +116,6 @@ license that can be found in the LICENSE file.
       get selection() {
         return this.$.selection.getSelection();
       },
-      valueForNode: function(inNode) {
-        return inNode[this.valueattr] || inNode.getAttribute(this.valueattr);
-      },
-      valueToIndex: function(inValue) {
-        // find an item with value == inValue and return it's index
-        for (var i=0, items=this.items, c; (c=items[i]); i++) {
-          if (this.valueForNode(c) == inValue) {
-            return i;
-          }
-        }
-        // if no item found, the value itself is probably the index
-        return inValue;
-      },
       selectedChanged: function() {
         this.valueToSelection(this.selected);
       },
@@ -142,6 +129,19 @@ license that can be found in the LICENSE file.
           this.selectedModel = null;
         }
       },
+      valueToIndex: function(inValue) {
+        // find an item with value == inValue and return it's index
+        for (var i=0, items=this.items, c; (c=items[i]); i++) {
+          if (this.valueForNode(c) == inValue) {
+            return i;
+          }
+        }
+        // if no item found, the value itself is probably the index
+        return inValue;
+      },
+      valueForNode: function(inNode) {
+        return inNode[this.valueattr] || inNode.getAttribute(this.valueattr);
+      },
       // events fired from <g-selection> object
       selectionSelect: function(inEvent, inInfo) {
         if (inInfo.item) {
@@ -150,6 +150,9 @@ license that can be found in the LICENSE file.
       },
       // event fired from host
       activateHandler: function(inEvent) {
+        if (this.notap) {
+          return;
+        }
         var items = this.items;
         var i = Toolkit.findDistributedTarget(inEvent.target, items);
         if (i >= 0) {

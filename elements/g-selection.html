@@ -34,17 +34,19 @@ license that can be found in the LICENSE file.
         return this.selection.indexOf(inItem) >= 0;
       },
       setItemSelected: function(inItem, inIsSelected) {
-        if (inIsSelected) {
-          this.selection.push(inItem);
-        } else {
-          var i = this.selection.indexOf(inItem);
-          if (i >= 0) {
-            this.selection.splice(i, 1);
+        if (inItem) {
+          if (inIsSelected) {
+            this.selection.push(inItem);
+          } else {
+            var i = this.selection.indexOf(inItem);
+            if (i >= 0) {
+              this.selection.splice(i, 1);
+            }
           }
+          // TODO(sjmiles): consider replacing with summary
+          // notifications (asynchronous job)
+          this.asend("select", {isSelected: inIsSelected, item: inItem});
         }
-        // TODO(sjmiles): consider replacing with summary
-        // notifications (asynchronous job)
-        this.asend("select", {isSelected: inIsSelected, item: inItem});
       },
       select: function(inItem) {
         if (this.multi) {
