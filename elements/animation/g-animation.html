@@ -222,7 +222,11 @@
         this.asyncApply();
       },
       doOnChildren: function(inFn) {
-        Array.prototype.forEach.call(this.children, inFn, this);
+        var children = this.children;
+        if (!children.length) {
+          children = this.webkitShadowRoot ? this.webkitShadowRoot.childNodes : [];
+        }
+        Array.prototype.forEach.call(children, inFn, this);
       },
       get timingProps() {
         var props = {};
