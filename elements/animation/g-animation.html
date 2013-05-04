@@ -250,7 +250,7 @@
         var props = {};
         if (!this.properties) {
           this.doOnChildren(function(c) {
-            if (c.tagName.toLowerCase() === 'g-property') {
+            if (c.tagName && c.tagName.toLowerCase() === 'g-property') {
               var property = c.name;
               var values = [];
               this.doOnChildren.call(c, function(f) {

@@ -1,12 +1,16 @@
 <link rel="import" href="g-animation.html">
 <element name="g-fadein" extends="g-animation">
+  <template>
+    <g-property name="opacity">
+      <g-keyframe value="0"></g-keyframe>
+      <g-keyframe value="1"></g-keyframe>
+    </g-property>
+    <content></content>
+  </template>
   <script>
     Toolkit.register(this, {
       publish: {
-        properties: {
-          targetSelector: '',
-          opacity: ["0", "1"]
-        }
+        targetSelector: ''
       }
     });
   </script>
