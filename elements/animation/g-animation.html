@@ -138,7 +138,7 @@
         // applied before playing the animation.
         window.dirtyCheck();
         this.completeApply();
-        //this.animation && console.log('play', this.animation, this.target.style.left);
+        //this.animation && console.log('play', this.animation);
         if (this.animation) {
           this.cancel();
           this.player = document.timeline.play(this.animation);
