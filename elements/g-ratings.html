@@ -24,22 +24,26 @@ license that can be found in the LICENSE file.
 <element name="g-ratings" attributes="count value">
   <template>
     <style>
-       @host {
+      @host {
         * {
           white-space: nowrap;
         }
-       }
+      }
 
-       .star {
+      .star {
         display: inline-block;
-        width: 12px;
-        height: 21px;
-        background: url('images/star_blank.svg') center no-repeat;
+        width: 24px;
+        height: 24px;
+        margin-right: 10px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+        background-image: url('images/star_blank.png');
         cursor: default;
       }
       
       .star.full {
-        background: url('images/star_full.svg') center no-repeat;
+        background-image: url('images/star_full.png');
       }
     </style>
     <template repeat="{{stars}}">
