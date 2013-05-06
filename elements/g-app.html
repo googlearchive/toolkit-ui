@@ -116,15 +116,16 @@ license that can be found in the LICENSE file.
     <content></content>
   </template>
   <script>
-    var style = this.querySelector('#g-app');
-    var ensureHostStyles = function(inNode) {
-      var root = inNode.webkitShadowRoot;
-      if (root) {
-        Toolkit.shimShadowDOMStyling([style], inNode.localName);
-        root.insertBefore(style.cloneNode(true), root.childNodes[0]);
+    if (this !== window ){
+      var style = this.querySelector('#g-app');
+      var ensureHostStyles = function(inNode) {
+        var root = inNode.webkitShadowRoot;
+        if (root) {
+          Toolkit.shimShadowDOMStyling([style], inNode.localName);
+          root.insertBefore(style.cloneNode(true), root.childNodes[0]);
+        }
       }
     }
-
     Toolkit.register(this, {
       ready: function() {
         ensureHostStyles(this);
