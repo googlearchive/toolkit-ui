@@ -143,7 +143,7 @@ license that can be found in the LICENSE file.
       },
       // events fired from <g-selection> object
       selectionSelect: function(inEvent, inInfo) {
-        if (inInfo.item) {
+        if (inInfo.item && this.selectedClass) {
           inInfo.item.classList.toggle(this.selectedClass, inInfo.isSelected);
         }
       },
