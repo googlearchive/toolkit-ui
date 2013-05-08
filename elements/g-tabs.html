@@ -24,73 +24,42 @@ license that can be found in the LICENSE file.
  */
 -->
 <link rel="import" href="g-selector.html">
-<element name="g-tabs" extends="g-selector" attributes="vertical">
+<element name="g-tabs" extends="g-selector">
   <template>
     <style>
       .tabs {
         display: block;
-        height: 28px;
-        line-height: 28px;
+        height: 59px;
         border: 0;
-        border-bottom: 1px solid #ccc;
+        background-color: white;
+        border-bottom: 1px solid #e8e8e8;
         white-space: nowrap;
       }
-      
-      .tabs[vertical=true] {
-        display: inline-block;
-        width: 71px;
-        height: 100%;
-        border: 0;
-        border-right: 1px solid #ccc;
-        white-space: normal;
-      }
-      
       
       /*@polyfill .tabs > * */
       ::-webkit-distributed(*) {
         display: inline-block;
-        min-width: 54px;
-        height: 27px;
-        line-height: 27px;
+        min-width: 60px;
+        height: 59px;
+        line-height: 59px;
         text-align: center;
         padding: 0 8px;
         cursor: default;
-        border: 1px solid transparent;
-        border-radius: 2px 2px 0 0;
-        -webkit-transition: all 0.218s;
-      }
-      
-
-      /*@polyfill .tabs[vertical=true] > * */
-      .tabs[vertical=true] *::-webkit-distributed(*) {
-        border-radius: 2px 0 0 2px;
-      }
-      
-      /*@polyfill .tabs > *:hover */
-      ::-webkit-distributed(*:hover) {
-        color: #555;
+        color: #999;
+        font-size: 14px;
       }
       
       /*@polyfill .tabs > *.selected */
       ::-webkit-distributed(*.selected) {
-        color: #202020;
-        border: 1px solid #ccc;
+        color: #fff;
+        background: #4888f0;
       }
     </style>
-    <div class="tabs" vertical="{{vertical}}">
+    <div class="tabs">
       <shadow></shadow>
     </div>
   </template>
   <script>
-    Toolkit.register(this, {
-      /**
-       * If true, shows the tab menu vertically.
-       *
-       * @attribute vertical
-       * @type boolean
-       * @default false
-       */
-      vertical: false
-    });
+    Toolkit.register(this);
   </script>
 </element>
