@@ -266,8 +266,7 @@ license that can be found in the LICENSE file.
     // scrim.
     captureHandler: function(e) {
       if (!this.autoCloseDisabled && (currentOverlay() == this) && (this 
-          != e.target) && !(this.compareDocumentPosition(e.target) &
-          Node.DOCUMENT_POSITION_CONTAINED_BY)) {
+          != e.target) && !(this.contains(e.target))) {
         this.autoCloseJob = this.job(this.autoCloseJob, function() {
           this.opened = false;
         });
