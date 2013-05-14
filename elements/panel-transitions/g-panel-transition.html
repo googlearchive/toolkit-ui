@@ -7,12 +7,12 @@
 -->
 <!--
 /**
- * @module Toolkit Elements
+ * @module Polymer Elements
  */
 -->
 <element name="g-panel-transition">
   <script>
-    Toolkit.register(this, {
+    Polymer.register(this, {
       transitionClass: 'transition',
       timeout: 1000,
       //* indicates only one panel should be displayed at a time.
@@ -86,7 +86,7 @@
 
 <element name="g-none-panel-transition" extends="g-panel-transition">
   <script>
-    Toolkit.register(this, {
+    Polymer.register(this, {
       begin: function() {
         this.finish();
       }

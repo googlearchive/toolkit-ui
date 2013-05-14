@@ -5,7 +5,7 @@ license that can be found in the LICENSE file.
 -->
 <!--
 /**
- * @module Toolkit Elements
+ * @module Polymer Elements
  */
 /**
  * g-overlay displays overlayed on top of other content. It starts out
@@ -72,7 +72,7 @@ license that can be found in the LICENSE file.
          on-keydown="keydownHandler"
          >
 <link rel="stylesheet" href="css/g-overlay.css">
-<link rel="stylesheet" toolkit-scope="global" href="css/g-overlay-global.css">
+<link rel="stylesheet" polymer-scope="global" href="css/g-overlay-global.css">
 <template>
   <content></content>
 </template>
@@ -132,7 +132,7 @@ license that can be found in the LICENSE file.
     }
   }
 
-  Toolkit.register(this, {
+  Polymer.register(this, {
     /**
      * Set opened to true to show an overlay and to false to hide it.
      * A g-overlay may be made intially opened by setting its opened 

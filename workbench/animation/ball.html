@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Basic Animations</title>
-    <script src="../../../toolkit/toolkit.js"></script>
+    <script src="../../../polymer/polymer.js"></script>
     <link rel="import" href="../../elements/g-app.html">
     <link rel="import" href="../../elements/animation/g-animation-group.html">
   </head>
@@ -55,7 +55,7 @@
         <content></content>
       </template>
       <script>
-        Toolkit.register(this, {
+        Polymer.register(this, {
           ready: function() {
             this.$.animation.play();
           }
@@ -91,7 +91,7 @@
         </div>
       </template>
       <script>
-        Toolkit.register(this, {
+        Polymer.register(this, {
           ready: function() {
             this.super();
             this.$.animation.play();

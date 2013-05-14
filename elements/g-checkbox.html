@@ -1,5 +1,5 @@
 <element name="g-checkbox" extends="input" attributes="title">
-  <style toolkit-scope="global">
+  <style polymer-scope="global">
     input[is="g-checkbox"] {
       -webkit-appearance: none;
       height: 24px;
@@ -24,7 +24,7 @@
     }
   </style>
   <script>
-    Toolkit.register(this, {
+    Polymer.register(this, {
       ready: function() {
         this.setAttribute('type', 'checkbox');
       }

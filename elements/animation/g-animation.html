@@ -1,4 +1,4 @@
-<script src="../../../toolkit/platform/WebAnimations/web-animations.js"></script>
+<script src="../../../polymer/platform/WebAnimations/web-animations.js"></script>
 <element name="g-animation">
   <script>
     function findTarget(inSelector, inNode) {
@@ -42,7 +42,7 @@
       * Fired when an animation completes
       * @event complete
       */
-    Toolkit.register(this, {
+    Polymer.register(this, {
       publish: {
         animation: null,
         /**
@@ -303,7 +303,7 @@
      *     </g-property>
      * @class g-property
      */
-    Toolkit.register(this, {
+    Polymer.register(this, {
       publish: {
         /**
          * CSS property name.
@@ -323,7 +323,7 @@
      * Defines the value at a keyframe for the containing `g-property`.
      * @class g-keyframe
      */
-    Toolkit.register(this, {
+    Polymer.register(this, {
       publish: {
         /**
          * From 0 to 1.

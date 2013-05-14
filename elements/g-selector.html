@@ -5,7 +5,7 @@ license that can be found in the LICENSE file.
 -->
 <!--
 /**
- * @module Toolkit Elements
+ * @module Polymer Elements
  */
 /**
  * g-selector is used to display a list of elements that can be selected.
@@ -53,7 +53,7 @@ license that can be found in the LICENSE file.
     <content id="items" select="*"></content>
   </template>
   <script>
-    Toolkit.register(this, {
+    Polymer.register(this, {
       /**
        * Gets or sets the selected element.  Default is to use the index
        * of the currently selected element.
@@ -153,7 +153,7 @@ license that can be found in the LICENSE file.
           return;
         }
         var items = this.items;
-        var i = Toolkit.findDistributedTarget(inEvent.target, items);
+        var i = Polymer.findDistributedTarget(inEvent.target, items);
         if (i >= 0) {
           var selected = this.valueForNode(items[i]) || i;
           if (this.multi) {

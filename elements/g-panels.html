@@ -5,7 +5,7 @@ license that can be found in the LICENSE file.
 -->
 <!--
 /**
- * @module Toolkit Elements
+ * @module Polymer Elements
  */
  /**
   * g-panels is used to display a list of elements that can be selected.
@@ -62,8 +62,8 @@ license that can be found in the LICENSE file.
 <element name="g-panels" attributes="transition selected index autoselect" 
          on-keydown="keydownHandler">
 <link rel="stylesheet" href="css/g-panels.css" />
-<link rel="stylesheet" toolkit-scope="global" href="css/g-panels-global.css" />
-<link rel="stylesheet" toolkit-scope="controller" href="css/g-panels-controller.css" />
+<link rel="stylesheet" polymer-scope="global" href="css/g-panels-global.css" />
+<link rel="stylesheet" polymer-scope="controller" href="css/g-panels-controller.css" />
 <template>
   <content id="content" select="*"></content>
 </template>
@@ -83,7 +83,7 @@ license that can be found in the LICENSE file.
   
   var element = this;
   
-  Toolkit.register(this, {
+  Polymer.register(this, {
     /**
      * The type of transition g-panels should use to change between selected
      * panels. The transition property corresponds to an element that is used
@@ -112,7 +112,7 @@ license that can be found in the LICENSE file.
     defaultTransition: 'keyframe',
     _canTransition: false,
     ready: function() {
-      Toolkit.installControllerStyles(this, element);
+      Polymer.installControllerStyles(this, element);
       this.initPanels();
       if (!this.hasAttribute('tabindex')) {
         this.tabIndex = -1;

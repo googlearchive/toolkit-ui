@@ -1,6 +1,6 @@
 <element name="g-progress" attributes="value">
   <!-- TODO(dfreedman): remove from global when crbug.com/227260 is fixed -->
-  <style toolkit-scope="global">
+  <style polymer-scope="global">
     ::-webkit-progress-bar {
       border-radius: 1rem;
       background: linear-gradient(to bottom, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.175));
@@ -32,7 +32,7 @@
     </div>
   </template>
   <script>
-    Toolkit.register(this, {
+    Polymer.register(this, {
       value: 0
     });
   </script>

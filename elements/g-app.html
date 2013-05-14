@@ -5,7 +5,7 @@ license that can be found in the LICENSE file.
 -->
 <!--
 /**
- * @module Toolkit Elements
+ * @module Polymer Elements
  */
 /**
  * g-app is a basic application component that provides some convenient
@@ -51,7 +51,7 @@ license that can be found in the LICENSE file.
  *         <footer>more...</footer>
  *       </template>
  *       <script>
- *         Toolkit.register(this, {
+ *         Polymer.register(this, {
  *           ready: function() {
  *             this.super(arguments);
  *             console.log('app ready!');
@@ -121,12 +121,12 @@ license that can be found in the LICENSE file.
       var ensureHostStyles = function(inNode) {
         var root = inNode.webkitShadowRoot;
         if (root) {
-          Toolkit.shimShadowDOMStyling([style], inNode.localName);
+          Polymer.shimShadowDOMStyling([style], inNode.localName);
           root.insertBefore(style.cloneNode(true), root.childNodes[0]);
         }
       }
     }
-    Toolkit.register(this, {
+    Polymer.register(this, {
       ready: function() {
         ensureHostStyles(this);
       }

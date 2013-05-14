@@ -5,7 +5,7 @@ license that can be found in the LICENSE file.
 -->
 <!--
 /**
- * @module Toolkit Elements
+ * @module Polymer Elements
  */
 /**
  * g-tabpanels is a g-panels with g-tabs connected to it.
@@ -26,7 +26,7 @@ license that can be found in the LICENSE file.
 <link rel="import" href="g-tabs.html">
 <link rel="import" href="g-panels.html">
 <element name="g-tabpanels" extends="g-panels">
-  <link rel="stylesheet" toolkit-scope="controller" href="css/g-tabpanels-controller.css" />
+  <link rel="stylesheet" polymer-scope="controller" href="css/g-tabpanels-controller.css" />
   <link rel="stylesheet" href="css/g-flex-layout.css" />
   <template>
     <style>
@@ -44,10 +44,10 @@ license that can be found in the LICENSE file.
       return str.slice(0, 1).toUpperCase() + str.slice(1);
     }
     
-    Toolkit.register(this, {
+    Polymer.register(this, {
       ready: function() {
         // TODO(sorvell): import styling from panels... this should be @host-ified
-        Toolkit.installControllerStyles(this, this.elementElement);
+        Polymer.installControllerStyles(this, this.elementElement);
         this.classList.add('flexbox', 'col');
         this.super();
       },
