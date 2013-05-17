@@ -413,6 +413,7 @@ license that can be found in the LICENSE file.
     },
     // TODO(sorvell): temporary api; this needs to be automated
     panelAdded: function(inPanel) {
+      this.initPanel(inPanel, this.count);
       this.transitionNode.setupPanel(inPanel);
       this.refresh();
     }
