@@ -189,7 +189,7 @@ license that can be found in the LICENSE file.
     selectedValueForPanel: function(inPanel) {
       var name = inPanel && (inPanel.getAttribute('id') ||
           inPanel.getAttribute('name'));
-      return name || this.indexOf(inPanel);
+      return name || ('' + this.indexOf(inPanel));
     },
     selectedValueForIndex: function(inIndex) {
       var panel = this.panelAtIndex(inIndex);
