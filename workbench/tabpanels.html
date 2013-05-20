@@ -127,8 +127,11 @@ license that can be found in the LICENSE file.
     
     addPanel = function() {
       var p = document.createElement('section');
+      var panelName = 'Panel ' + ++panels.count;
+
       p.style.background = 'hsla(' + Math.round(Math.random() * 360) + ', 60%, 30%, 1)';
-      p.textContent = 'Panel ' + ++panels.count;
+      p.textContent = panelName;
+      p.setAttribute('name', panelName);
       panels.appendChild(p);
       panels.panelAdded(p);
       panels.index = panels.count;
