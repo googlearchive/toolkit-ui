@@ -107,7 +107,7 @@ license that can be found in the LICENSE file.
      * @default null
      */
     selected: null,
-    index: 0,
+    index: -1,
     autoSelect: false,
     defaultTransition: 'keyframe',
     _canTransition: false,
@@ -121,8 +121,9 @@ license that can be found in the LICENSE file.
     // since 
     insertedCallback: function() {
       this.enableTransitions(false);
-      this.indexChanged();
-      this.selectedChanged();
+      if (this.index === -1 && this.selected === null) {
+        this.indexChanged();
+      }
       this.enableTransitions(true);
     },
     initPanels: function() {
