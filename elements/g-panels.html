@@ -83,7 +83,7 @@ license that can be found in the LICENSE file.
   
   var element = this;
   
-  Polymer.register(this, {
+   Polymer.register(this, {
     /**
      * The type of transition g-panels should use to change between selected
      * panels. The transition property corresponds to an element that is used
@@ -114,13 +114,14 @@ license that can be found in the LICENSE file.
     ready: function() {
       Polymer.installControllerStyles(this, element);
       this.initPanels();
+      this.observeChildren();
       if (!this.hasAttribute('tabindex')) {
         this.tabIndex = -1;
       }
     },
-    // since 
     insertedCallback: function() {
       this.enableTransitions(false);
+      this.flushChildrenMutations();
       if (this.index === -1 && this.selected === null) {
         this.indexChanged();
       }
@@ -131,13 +132,39 @@ license that can be found in the LICENSE file.
         this.initPanel(p, i);
       }, this);
     },
+    observeChildren: function() {
+      this.boundHandleMutations = this.handleMutations.bind(this);
+      this.childrenObserver = new MutationObserver(this.boundHandleMutations);
+      this.childrenObserver.observe(this, {childList: true});
+    },
+    handleMutations: function(mutations) {
+      Array.prototype.forEach.call(mutations, function(m) {
+        if (m.removedNodes) {
+          this.nodesRemoved(m.removedNodes);
+        }
+        if (m.addedNodes) {
+          this.nodesAdded(m.addedNodes);
+        }
+      }, this);
+    },
+    flushChildrenMutations: function() {
+      this.boundHandleMutations(this.childrenObserver.takeRecords());
+    },
+
     /**
      * Extendors can implement initPanel to initialize the panels in a g-panels.
      * @method initPanel
      * @param inPanel The panel to initialize.
      * @param inIndex The index of the panel.
      */
-    initPanel: function(inPanel, inIndex) {},
+    initPanel: function(inPanel, inIndex) {
+      this.ensureTransition();
+      this.transitionNode.setupPanel(inPanel, inIndex);
+    },
+    teardownPanel: function(inPanel) {
+      this.ensureTransition();
+      this.transitionNode.teardownPanel(inPanel);
+    },
     indexChanged: function(inOldValue) {
       var i = this.clampIndex(this.index);
       if (!this.canSelect(i)) {
@@ -152,9 +179,7 @@ license that can be found in the LICENSE file.
         var fromPanel = this.panelAtIndex(this.lastIndex),
             toPanel = this.panelAtIndex(this.index),
             forward = Boolean(this.index > this.lastIndex);
-        if (!this.transitionNode) {
-          this.transitionChanged();
-        }
+        this.ensureTransition();
         if (this.canTransition(fromPanel, toPanel, forward)) {
           this.beginTransition(fromPanel, toPanel, forward);
         } else {
@@ -162,6 +187,11 @@ license that can be found in the LICENSE file.
         }
         this.lastIndex = this.index;
         this.selected = this.getSelectedValue();
+      }
+    },
+    ensureTransition: function() {
+      if (!this.transitionNode) {
+        this.transitionChanged();
       }
     },
     canSelect: function(inIndex) {
@@ -343,11 +373,13 @@ license that can be found in the LICENSE file.
      */
     getPanels: function() {
       var n$ = this.$.content.getDistributedNodes();
+      return Array.prototype.filter.call(n$, this.nodeIsPanel, this);
+    },
+    nodeIsPanel: function(node) {
       var excluded = ['style', 'template'];
-      return Array.prototype.filter.call(n$, function(c) {
-        return (c.nodeType == Node.ELEMENT_NODE) && (excluded.indexOf(c.localName) < 0)
-          && !this.isTransitionNode(c);
-      }.bind(this));
+      return (node.nodeType == Node.ELEMENT_NODE) && 
+        (excluded.indexOf(node.localName) < 0) && 
+        !this.isTransitionNode(node);
     },
     /**
      * The number of panel elements inside the g-panels
@@ -412,11 +444,27 @@ license that can be found in the LICENSE file.
     toggleBetween: function(inA, inB) {
       this.selected = this.selected == inA ? inB : inA;
     },
-    // TODO(sorvell): temporary api; this needs to be automated
+    // deprecrated
     panelAdded: function(inPanel) {
-      this.initPanel(inPanel, this.count);
-      this.transitionNode.setupPanel(inPanel);
+      this.flushChildrenMutations();
+    },
+    nodesAdded: function(nodes) {
+      var panels = this.getPanels();
+      this.ensureTransition();
+      Array.prototype.forEach.call(nodes, function(node) {
+        var i = panels.indexOf(node);
+        if (i >= 0) {
+          this.initPanel(node, i);
+        }
+      }, this);
       this.refresh();
+    },
+    nodesRemoved: function(nodes) {
+      Array.prototype.forEach.call(nodes, function(node) {
+        if (this.nodeIsPanel(node)) {
+          this.teardownPanel(node);
+        }
+      });
     }
   });
 </script>
