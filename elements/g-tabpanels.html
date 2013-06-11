@@ -56,6 +56,7 @@ license that can be found in the LICENSE file.
         tab.name = this.selectedValueForPanel(inPanel);
         tab.textContent = capitalize(tab.name);
         this.$.tabs.appendChild(tab);
+        this.super(arguments);
       }
     });
   </script>
