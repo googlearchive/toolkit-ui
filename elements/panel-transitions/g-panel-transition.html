@@ -18,6 +18,7 @@
       //* indicates only one panel should be displayed at a time.
       highlander: true,
       setup: function(inPanels) {
+        this.cancelUnbindAll();
         this.panels = inPanels;
         this.panels.getPanels().forEach(function(p, i) {
           this.setupPanel(p, i);
@@ -28,6 +29,7 @@
         this.panels.getPanels().forEach(function(p, i) {
           this.teardownPanel(p, i);
         }, this);
+        this.asyncUnbindAll();
       },
       setupPanel: function(inPanel, inIndex) {
         if (this.transitionClass) {

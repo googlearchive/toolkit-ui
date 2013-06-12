@@ -119,7 +119,7 @@ license that can be found in the LICENSE file.
         this.tabIndex = -1;
       }
     },
-    insertedCallback: function() {
+    inserted: function() {
       this.enableTransitions(false);
       this.flushChildrenMutations();
       if (this.index === -1 && this.selected === null) {
