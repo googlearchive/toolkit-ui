@@ -120,14 +120,13 @@ license that can be found in the LICENSE file.
     },
     inserted: function() {
       Polymer.installControllerStyles(this, element);
-      this.asyncMethod(function() {
-        this.enableTransitions(false);
-        this.flushChildrenMutations();
-        if (this.index === -1 && this.selected === null) {
-          this.indexChanged();
-        }
-        this.enableTransitions(true);
-      });
+      this.enableTransitions(false);
+      this.flushChildrenMutations();
+      if (this.index === -1 && this.selected === null) {
+        this.indexChanged();
+      }
+      this.enableTransitions(true);
+    
     },
     initPanels: function() {
       this.getPanels().forEach(function(p, i) {
@@ -332,7 +331,8 @@ license that can be found in the LICENSE file.
       }
     },
     refresh: function() {
-      if (this.transitionNode && this.transitionNode.canTransition()) {
+      if (this._canTransition && this.transitionNode && 
+          this.transitionNode.canTransition()) {
         this.transitionNode.refresh();
         this.ensureSelectedShowing();
       }
