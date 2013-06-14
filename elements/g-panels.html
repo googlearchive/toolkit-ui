@@ -112,7 +112,6 @@ license that can be found in the LICENSE file.
     defaultTransition: 'keyframe',
     _canTransition: false,
     ready: function() {
-      Polymer.installControllerStyles(this, element);
       this.initPanels();
       this.observeChildren();
       if (!this.hasAttribute('tabindex')) {
@@ -120,12 +119,15 @@ license that can be found in the LICENSE file.
       }
     },
     inserted: function() {
-      this.enableTransitions(false);
-      this.flushChildrenMutations();
-      if (this.index === -1 && this.selected === null) {
-        this.indexChanged();
-      }
-      this.enableTransitions(true);
+      Polymer.installControllerStyles(this, element);
+      this.asyncMethod(function() {
+        this.enableTransitions(false);
+        this.flushChildrenMutations();
+        if (this.index === -1 && this.selected === null) {
+          this.indexChanged();
+        }
+        this.enableTransitions(true);
+      });
     },
     initPanels: function() {
       this.getPanels().forEach(function(p, i) {
