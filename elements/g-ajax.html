@@ -37,13 +37,13 @@ license that can be found in the LICENSE file.
  */
 -->
 <link rel="import" href="g-xhr.html">
-<element name="g-ajax" attributes="url handleAs auto params response">
+<polymer-element name="g-ajax" attributes="url handleAs auto params response">
   <template>
     <g-xhr id="xhr"></g-xhr>
     <content></content>
   </template>
   <script>
-    Polymer.register(this, {
+    Polymer('g-ajax', {
       /**
        * The URL target of the request.
        * 
@@ -108,14 +108,14 @@ license that can be found in the LICENSE file.
       processResponse: function(inXhr) {
         var response = this.evalResponse(inXhr);
         this.response = response;
-        this.send('response', {response: response, xhr: inXhr});
+        this.fire('response', {response: response, xhr: inXhr});
       },
       error: function(inXhr) {
         var response = inXhr.status + ': ' + inXhr.responseText;
-        this.send('error', {response: response, xhr: inXhr});
+        this.fire('error', {response: response, xhr: inXhr});
       },
       complete: function(inXhr) {
-        this.send('complete', {response: inXhr.status, xhr: inXhr});
+        this.fire('complete', {response: inXhr.status, xhr: inXhr});
       },
       evalResponse: function(inXhr) {
         return this[(this.handleAs || 'text') + 'Handler'](inXhr);
@@ -180,4 +180,4 @@ license that can be found in the LICENSE file.
       }
     });
   </script>
-</element>
+</polymer-element>

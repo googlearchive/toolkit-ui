@@ -18,7 +18,7 @@ license that can be found in the LICENSE file.
  */
 -->
 <link rel="import" href="g-icon.html">
-<element name="g-icon-button" attributes="src active">
+<polymer-element name="g-icon-button" attributes="src active">
   <template>
     <style>
       @host {
@@ -58,7 +58,7 @@ license that can be found in the LICENSE file.
     <g-icon src="{{src}}"></g-icon>
   </template>
   <script>
-    Polymer.register(this, {
+    Polymer('g-icon-button', {
       /**
        * The URL of an image for the icon.
        *
@@ -83,4 +83,4 @@ license that can be found in the LICENSE file.
       }
     });
   </script>
-</element>
+</polymer-element>

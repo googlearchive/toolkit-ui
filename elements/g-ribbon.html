@@ -25,7 +25,7 @@
  */
 -->
 <link rel="import" href="g-selector.html"/>
-<element name="g-ribbon" extends="g-selector" attributes="label">
+<polymer-element name="g-ribbon" extends="g-selector" attributes="label">
   <template>
     <style>
       @host {
@@ -103,7 +103,7 @@
     </div>
   </template>
   <script>
-    Polymer.register(this, {
+    Polymer('g-ribbon', {
       /**
        * Label to put on the top portion of ribbon.
        *
@@ -114,4 +114,4 @@
       label: ''
     });
   </script>
-</element>
+</polymer-element>
