@@ -7,7 +7,7 @@
     <link rel="import" href="../../elements/animation/g-animation-group.html">
   </head>
   <body>
-    <element name="x-ball">
+    <polymer-element name="x-ball">
       <template>
         <style>
           @host {
@@ -55,15 +55,15 @@
         <content></content>
       </template>
       <script>
-        Polymer.register(this, {
+        Polymer('x-ball', {
           ready: function() {
             this.$.animation.play();
           }
         });
       </script>
-    </element>
+    </polymer-element>
     
-    <element name="my-app" extends="g-app">
+    <polymer-element name="my-app" extends="g-app">
       <template>
         <style>
           @host {
@@ -91,14 +91,14 @@
         </div>
       </template>
       <script>
-        Polymer.register(this, {
+        Polymer('my-app', {
           ready: function() {
             this.super();
             this.$.animation.play();
           }
         });
       </script>
-    </element>
+    </polymer-element>
     <my-app id="app"></my-app>
   </body>
 </html>

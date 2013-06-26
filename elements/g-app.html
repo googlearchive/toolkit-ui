@@ -31,7 +31,7 @@ license that can be found in the LICENSE file.
  * 
  *     <my-app></my-app>
  *
- *     <element name="my-app" extends="g-app">
+ *     <polymer-element name="my-app" extends="g-app">
  *       <template>
  *         <style>
  *           header, section, footer {
@@ -51,7 +51,7 @@ license that can be found in the LICENSE file.
  *         <footer>more...</footer>
  *       </template>
  *       <script>
- *         Polymer.register(this, {
+ *         Polymer('my-app', {
  *           ready: function() {
  *             this.super(arguments);
  *             console.log('app ready!');
@@ -61,12 +61,12 @@ license that can be found in the LICENSE file.
  *           }
  *         });
  *       < /script >
- *     </element>
+ *     </polymer-element>
  *
  * @class g-app
  */
 -->
-<element name="g-app">
+<polymer-element name="g-app">
   <!-- NOTE: special processing for stylesheet so that extendors get
   styling without having to include this styling specifically.
   TODO(sorvell): it's probably better to do this by requiring users to include
@@ -116,20 +116,20 @@ license that can be found in the LICENSE file.
     <content></content>
   </template>
   <script>
-    if (this !== window ){
-      var style = this.querySelector('#g-app');
-      var ensureHostStyles = function(inNode) {
+    (function() {
+      ensureHostStyles = function(inNode) {
+        var style = document.querySelector('style#g-app');
         var root = inNode.webkitShadowRoot;
         if (root) {
           Polymer.shimShadowDOMStyling([style], inNode.localName);
           root.insertBefore(style.cloneNode(true), root.childNodes[0]);
         }
-      }
-    }
-    Polymer.register(this, {
-      ready: function() {
-        ensureHostStyles(this);
-      }
-    });
+      },
+      Polymer('g-app', {
+        ready: function() {
+          ensureHostStyles(this);
+        }
+      });
+    })();
   </script>
-</element>
+</polymer-element>

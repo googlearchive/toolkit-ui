@@ -8,7 +8,7 @@ license that can be found in the LICENSE file.
  * @module Polymer Elements
  */
 -->
-<element name="g-selection" attributes="multi">
+<polymer-element name="g-selection" attributes="multi">
   <template>
     <style>
       @host {
@@ -19,7 +19,7 @@ license that can be found in the LICENSE file.
     </style>
   </template>
   <script>
-    Polymer.register(this, {
+    Polymer('g-selection', {
       multi: false,
       ready: function() {
         this.clear();
@@ -45,7 +45,7 @@ license that can be found in the LICENSE file.
           }
           // TODO(sjmiles): consider replacing with summary
           // notifications (asynchronous job)
-          this.asend("select", {isSelected: inIsSelected, item: inItem});
+          this.asyncFire("select", {isSelected: inIsSelected, item: inItem});
         }
       },
       select: function(inItem) {
@@ -61,4 +61,4 @@ license that can be found in the LICENSE file.
       }
     });
   </script>
-</element>
+</polymer-element>

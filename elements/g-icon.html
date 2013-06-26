@@ -23,7 +23,7 @@ license that can be found in the LICENSE file.
  * @class g-icon
  */
 -->
-<element name="g-icon" attributes="src size">
+<polymer-element name="g-icon" attributes="src size">
   <template>
     <style>
       @host {
@@ -45,7 +45,7 @@ license that can be found in the LICENSE file.
     <div id="icon" style="background-image:url({{src}}); width:{{size}}px; height:{{size}}px"></div>
   </template>
   <script>
-    Polymer.register(this, {
+    Polymer('g-icon', {
       /**
        * The URL of an image for the icon.
        *
@@ -64,4 +64,4 @@ license that can be found in the LICENSE file.
       size: 24
     });
   </script>
-</element>
+</polymer-element>

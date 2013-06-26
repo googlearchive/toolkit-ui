@@ -10,9 +10,9 @@
  * @module Polymer Elements
  */
 -->
-<element name="g-panel-transition">
+<polymer-element name="g-panel-transition">
   <script>
-    Polymer.register(this, {
+    Polymer('g-panel-transition', {
       transitionClass: 'transition',
       timeout: 1000,
       //* indicates only one panel should be displayed at a time.
@@ -84,14 +84,14 @@
       }
     });
   </script>
-</element>
+</polymer-element>
 
-<element name="g-none-panel-transition" extends="g-panel-transition">
+<polymer-element name="g-none-panel-transition" extends="g-panel-transition">
   <script>
-    Polymer.register(this, {
+    Polymer('g-none-panel-transition', {
       begin: function() {
         this.finish();
       }
-    })
+    });
   </script>
-</element>
+</polymer-element>

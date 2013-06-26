@@ -18,7 +18,7 @@
  * @class g-sidebar
  */
 -->
-<element name="g-sidebar" attributes="label">
+<polymer-element name="g-sidebar" attributes="label">
   <template>
     <style>
       @host {
@@ -74,7 +74,7 @@
     </div>
   </template>
   <script>
-    Polymer.register(this, {
+    Polymer('g-sidebar', {
       /**
        * Label to put on the top portion of ribbon.
        *
@@ -85,4 +85,4 @@
       label: ''
     });
   </script>
-</element>
+</polymer-element>

@@ -1,5 +1,5 @@
 <link rel="import" href="g-animation.html">
-<element name="g-translate" extends="g-animation">
+<polymer-element name="g-translate" extends="g-animation">
   <template>
   <!--
     <g-property name="transform">
@@ -9,7 +9,7 @@
   //-->
   </template>
   <script>
-    Polymer.register(this, {
+    Polymer('g-translate', {
       publish: {
         fromX: '0',
         fromY: '0',
@@ -38,4 +38,4 @@
       }
     });
   </script>
-</element>
+</polymer-element>
