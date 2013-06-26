@@ -21,7 +21,7 @@ license that can be found in the LICENSE file.
  * @class g-toolbar
  */
 -->
-<element name="g-toolbar" attributes="responsive">
+<polymer-element name="g-toolbar" attributes="responsive">
   <template>
     <style>
       .toolbar {
@@ -80,11 +80,11 @@ license that can be found in the LICENSE file.
     </div>
   </template>
   <script>
-    Polymer.register(this, {
+    Polymer('g-toolbar', {
       responsive: false,
       ready: function() {
         this.setAttribute('touch-action', 'none');
       }
     });
   </script>
-</element>
+</polymer-element>

@@ -11,9 +11,9 @@ license that can be found in the LICENSE file.
 <link rel="import" href="g-icon-button.html"/>
 <link rel="import" href="g-overlay.html">
 <link rel="import" href="g-menu.html"/>
-<element name="g-menu-button" attributes="src selected opened responsive valign selectedClass">
-  <link rel="stylesheet" href="css/g-menu-button.css" />
+<polymer-element name="g-menu-button" attributes="src selected opened responsive valign selectedClass">
   <template>
+    <link rel="stylesheet" href="css/g-menu-button.css" />
     <g-icon-button id="button" touch-action="none" on-tap="toggle" src="{{src}}" active="{{opened}}"></g-icon-button>
     <div responsive="{{responsive}}" valign="{{valign}}">
       <g-overlay id="overlay" class="slideup" opened="{{opened}}" modal>
@@ -26,7 +26,7 @@ license that can be found in the LICENSE file.
     </div>
   </template>
   <script>
-    Polymer.register(this, {
+    Polymer('g-menu-button', {
       src: '',
       selected: '',
       opened: false,
@@ -42,4 +42,4 @@ license that can be found in the LICENSE file.
       }
     });
   </script>
-</element>
+</polymer-element>

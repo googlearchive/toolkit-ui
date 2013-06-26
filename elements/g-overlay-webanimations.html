@@ -3,7 +3,7 @@
 <link rel="import" href="animation/g-animation-group.html">
 <link rel="import" href="animation/g-fadein.html">
 <link rel="import" href="animation/g-fadeout.html">
-<element name="g-overlay-webanimations" extends="g-overlay">
+<polymer-element name="g-overlay-webanimations" extends="g-overlay">
   <link rel="stylesheet" href="css/g-overlay.css">
   <link rel="stylesheet" polymer-scope="global" href="css/g-overlay-global.css">
   <template>
@@ -72,7 +72,7 @@
     <content></content>
   </template>
   <script>
-    Polymer.register(this, {
+    Polymer('g-overlay-webanimations', {
       publish: {
         animation: 'scale-slideup'
       },
@@ -108,4 +108,4 @@
       }
     });
   </script>
-</element>
+</polymer-element>

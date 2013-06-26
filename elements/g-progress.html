@@ -1,4 +1,4 @@
-<element name="g-progress" attributes="value">
+<polymer-element name="g-progress" attributes="value">
   <!-- TODO(dfreedman): remove from global when crbug.com/227260 is fixed -->
   <style polymer-scope="global">
     ::-webkit-progress-bar {
@@ -32,8 +32,8 @@
     </div>
   </template>
   <script>
-    Polymer.register(this, {
+    Polymer('g-progress', {
       value: 0
     });
   </script>
-</element>
+</polymer-element>

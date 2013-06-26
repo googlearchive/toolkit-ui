@@ -15,7 +15,7 @@ license that can be found in the LICENSE file.
  */
 -->
 <link rel="import" href="g-icon.html">
-<element name="g-menu-item" attributes="src label iconsize">
+<polymer-element name="g-menu-item" attributes="src label iconsize">
   <template>
     <style>
       .label {
@@ -34,7 +34,7 @@ license that can be found in the LICENSE file.
     </div>
   </template>
   <script>
-    Polymer.register(this, {
+    Polymer('g-menu-item', {
       /**
        * The URL of an image for the icon.
        *
@@ -61,4 +61,4 @@ license that can be found in the LICENSE file.
       iconsize: 24
     });
   </script>
-</element>
+</polymer-element>

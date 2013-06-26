@@ -25,10 +25,10 @@ license that can be found in the LICENSE file.
 -->
 <link rel="import" href="g-tabs.html">
 <link rel="import" href="g-panels.html">
-<element name="g-tabpanels" extends="g-panels">
-  <link rel="stylesheet" polymer-scope="controller" href="css/g-tabpanels-controller.css" />
-  <link rel="stylesheet" href="css/g-flex-layout.css" />
+<polymer-element name="g-tabpanels" extends="g-panels">
   <template>
+    <link rel="stylesheet" polymer-scope="controller" href="css/g-tabpanels-controller.css" />
+    <link rel="stylesheet" href="css/g-flex-layout.css" />
     <style>
       #container {
         position: relative;
@@ -40,24 +40,26 @@ license that can be found in the LICENSE file.
     </div>
   </template>
   <script>
-    function capitalize(str) {
-      return str.slice(0, 1).toUpperCase() + str.slice(1);
-    }
-    
-    Polymer.register(this, {
-      ready: function() {
-        // TODO(sorvell): import styling from panels... this should be @host-ified
-        Polymer.installControllerStyles(this, this.elementElement);
-        this.classList.add('flexbox', 'col');
-        this.super();
-      },
-      initPanel: function(inPanel, inIndex) {
-        var tab = document.createElement('div');
-        tab.name = this.selectedValueForPanel(inPanel);
-        tab.textContent = capitalize(tab.name);
-        this.$.tabs.appendChild(tab);
-        this.super(arguments);
+    (function() {
+      function capitalize(str) {
+        return str.slice(0, 1).toUpperCase() + str.slice(1);
       }
-    });
+      
+      Polymer('g-tabpanels', {
+        ready: function() {
+          // TODO(sorvell): import styling from panels... this should be @host-ified
+          this.installControllerStyles(this, this.elementElement);
+          this.classList.add('flexbox', 'col');
+          this.super();
+        },
+        initPanel: function(inPanel, inIndex) {
+          var tab = document.createElement('div');
+          tab.name = this.selectedValueForPanel(inPanel);
+          tab.textContent = capitalize(tab.name);
+          this.$.tabs.appendChild(tab);
+          this.super(arguments);
+        }
+      });
+    })();
   </script>
-</element>
+</polymer-element>

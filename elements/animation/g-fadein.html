@@ -1,5 +1,5 @@
 <link rel="import" href="g-animation.html">
-<element name="g-fadein" extends="g-animation">
+<polymer-element name="g-fadein" extends="g-animation">
   <template>
     <g-property name="opacity">
       <g-keyframe value="0"></g-keyframe>
@@ -8,10 +8,10 @@
     <content></content>
   </template>
   <script>
-    Polymer.register(this, {
+    Polymer('g-fadein', {
       publish: {
         targetSelector: ''
       }
     });
   </script>
-</element>
+</polymer-element>

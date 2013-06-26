@@ -1,6 +1,6 @@
 <link rel="import" href="g-selector.html">
 <link rel="import" href="g-overlay.html">
-<element name="g-select" attributes="selected">
+<polymer-element name="g-select" attributes="selected">
   <template>
     <style>
       @host {
@@ -42,7 +42,7 @@
     </g-overlay>
   </template>
   <script>
-    Polymer.register(this, {
+    Polymer('g-select', {
       ready: function() {
         this.setAttribute('touch-action', 'none');
       },
@@ -53,4 +53,4 @@
       }
     });
   </script>
-</element>
+</polymer-element>

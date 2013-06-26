@@ -1,4 +1,4 @@
-<element name="g-checkbox" extends="input" attributes="title">
+<polymer-element name="g-checkbox" extends="input" attributes="title">
   <style polymer-scope="global">
     input[is="g-checkbox"] {
       -webkit-appearance: none;
@@ -24,10 +24,10 @@
     }
   </style>
   <script>
-    Polymer.register(this, {
+    Polymer('g-checkbox', {
       ready: function() {
         this.setAttribute('type', 'checkbox');
       }
     });
   </script>
-</element>
+</polymer-element>

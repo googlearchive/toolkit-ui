@@ -47,13 +47,13 @@ license that can be found in the LICENSE file.
  */
 -->
 <link rel="import" href="g-selection.html">
-<element name="g-selector" on-tap="activateHandler" attributes="selected selectedClass selectedModel multi valueattr notap">
+<polymer-element name="g-selector" on-tap="activateHandler" attributes="selected selectedClass selectedModel multi valueattr notap">
   <template>
     <g-selection id="selection" multi="{{multi}}" on-select="selectionSelect"></g-selection>
     <content id="items" select="*"></content>
   </template>
   <script>
-    Polymer.register(this, {
+    Polymer('g-selector', {
       /**
        * Gets or sets the selected element.  Default is to use the index
        * of the currently selected element.
@@ -153,7 +153,7 @@ license that can be found in the LICENSE file.
           return;
         }
         var items = this.items;
-        var i = Polymer.findDistributedTarget(inEvent.target, items);
+        var i = this.findDistributedTarget(inEvent.target, items);
         if (i >= 0) {
           var selected = this.valueForNode(items[i]) || i;
           if (this.multi) {
@@ -161,9 +161,20 @@ license that can be found in the LICENSE file.
           } else {
             this.selected = selected;
           }
-          this.asend('activate', {item: items[i]});
+          this.asyncFire('activate', {item: items[i]});
+        }
+      },
+      findDistributedTarget: function(target, nodes) {
+        // find first ancestor of target (including itself) that
+        // is in inNodes, if any
+        while (target && target != this) {
+          var i = Array.prototype.indexOf.call(nodes, target);
+          if (i >= 0) {
+            return i;
+          }
+          target = target.parentNode;
         }
       }
     });
   </script>
-</element>
+</polymer-element>

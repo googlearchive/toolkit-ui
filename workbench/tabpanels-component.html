@@ -11,7 +11,7 @@
       background: lightgrey;
     }
   </style>
-  <element name="nested-tabs">
+  <polymer-element name="nested-tabs">
   <template>
     <style>
     @host { 
@@ -52,11 +52,11 @@
   </g-tabpanels>
   </template>
   <script>
-    Polymer.register(this, {
+    Polymer('nested-tabs', {
       ready: function() {}
   });
   </script>
-</element>
+</polymer-element>
 </head>
 <body>
   <nested-tabs id="t"></nested-tabs>

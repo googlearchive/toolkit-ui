@@ -1,6 +1,6 @@
-<element name="g-field" attributes="label appearance">
-  <link rel="stylesheet" href="css/g-flex-layout.css" />
+<polymer-element name="g-field" attributes="label appearance">
   <template>
+    <link rel="stylesheet" href="css/g-flex-layout.css" />
     <style>
       @host {
         * {
@@ -61,9 +61,9 @@
     </div>
   </template>
   <script>
-    Polymer.register(this, {
+    Polymer('g-field', {
       label: '',
       appearance: 'inset',
     });
   </script>
-</element>
+</polymer-element>
