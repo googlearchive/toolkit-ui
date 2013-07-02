@@ -73,7 +73,7 @@ license that can be found in the LICENSE file.
 
 	<button overlay="#dialog2">Toggle Dialog 2</button>
 
-	<g-overlay id="dialog2" class="g-overlay-shake" modal>
+	<g-overlay id="dialog2" class="g-overlay-shake" autoCloseDisabled="true">
 		<h2>Dialog 2</h2>
 			I'm dizzy.
 		</div><br><br>
@@ -95,7 +95,7 @@ license that can be found in the LICENSE file.
     }
     
     modalChange = function(e) {
-      dialog.modal = e.target.checked;
+      dialog.autoCloseDisabled = e.target.checked;
     }
     
     scrimChange = function(e) {
@@ -104,8 +104,7 @@ license that can be found in the LICENSE file.
     
     var overlayButtons = document.querySelectorAll('button[overlay]');
     Array.prototype.forEach.call(overlayButtons, function(b) {
-      b.setAttribute('touch-action', 'none');
-      b.addEventListener('click', function(e) {
+      b.addEventListener('tap', function(e) {
         var overlay = document.querySelector(e.target.getAttribute('overlay'));
         if (overlay) {
           overlay.toggle();
