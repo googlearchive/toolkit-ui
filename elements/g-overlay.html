@@ -191,13 +191,6 @@ license that can be found in the LICENSE file.
       enableCaptureHandler: function(inEnable) {
         this.enableHandler(inEnable, 'captureHandler', document, 
           this.captureEventType, true);
-        if (window.PointerEventsPolyfill) {
-          if (inEnable) {
-            PointerEventsPolyfill.dispatcher.registerTarget(document);
-          } else {
-            PointerEventsPolyfill.dispatcher.unregisterTarget(document);
-          }
-        }
       },
       getFocusNode: function() {
         return this.querySelector('[autofocus]') || this;
