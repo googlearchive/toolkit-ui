@@ -121,7 +121,9 @@ license that can be found in the LICENSE file.
         var style = document.querySelector('style#g-app');
         var root = inNode.webkitShadowRoot;
         if (root) {
-          Polymer.shimShadowDOMStyling([style], inNode.localName);
+          if (window.ShadowDOMPolyfill) {
+            Platform.ShadowCSS.shimShadowDOMStyling([style], inNode.localName);
+          }
           root.insertBefore(style.cloneNode(true), root.childNodes[0]);
         }
       },
