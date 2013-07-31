@@ -41,7 +41,7 @@ license that can be found in the LICENSE file.
  /**
   * Fired when an element is selected via tap.
   *
-  * @event select
+  * @event g-panels-select
   * @param {Object} inDetail
   *   @param {Object} inDetail.selected the selected element
   *   @param {Object} inDetail.index the index in the list of elements
@@ -49,7 +49,7 @@ license that can be found in the LICENSE file.
  /**
   * Fired when an element is about to be selected. Call the preventSelect
   * to prevent the selection.
-  * @event canSelect
+  * @event g-panels-canSelect
   * @param {Object} inDetail
   *   @param {Object} inDetail.selected the selected element
   *   @param {Object} inDetail.item the selected element
@@ -202,7 +202,7 @@ license that can be found in the LICENSE file.
         // it's likely that the decision needs to rely on binding state.
         // consider doing this in g-component.send.
         dirtyCheck();
-        this.fire('canselect', {
+        this.fire('g-panels-canselect', {
           index: inIndex, 
           selected: this.selectedValueForIndex(inIndex),
           preventSelect: function() {
@@ -313,7 +313,7 @@ license that can be found in the LICENSE file.
         }
         this.ensureSelectedShowing();
         //console.timeEnd('transition: ' + this.transition + ', ' + this.className);
-        this.asyncFire('select', {selected: this.selected, index: this.index});
+        this.asyncFire('g-panels-select', {selected: this.selected, index: this.index});
       },
       keydownHandler: function(e) {
         if (this.autoselect && !documentIsEditing()) {
