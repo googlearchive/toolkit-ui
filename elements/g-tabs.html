@@ -24,7 +24,7 @@ license that can be found in the LICENSE file.
  */
 -->
 <link rel="import" href="g-selector.html">
-<polymer-element name="g-tabs" noscript extends="g-selector">
+<polymer-element name="g-tabs" extends="g-selector">
   <template>
     <style>
       .tabs {
@@ -59,4 +59,7 @@ license that can be found in the LICENSE file.
       <shadow></shadow>
     </div>
   </template>
+  <script>
+    Polymer('g-tabs');
+  </script>
 </polymer-element>
