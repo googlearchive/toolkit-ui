@@ -11,7 +11,7 @@
         if (p) {
           target = p.querySelector(inSelector);
         }
-        if (!target && p.host) {
+        if (!target && p && p.host) {
           target = findTarget(inSelector, p.host);
         }
         return target;
