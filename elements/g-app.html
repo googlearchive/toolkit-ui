@@ -119,7 +119,7 @@ license that can be found in the LICENSE file.
     (function() {
       ensureHostStyles = function(inNode) {
         var style = document.querySelector('style#g-app');
-        var root = inNode.webkitShadowRoot;
+        var root = inNode.shadowRoot;
         if (root) {
           if (window.ShadowDOMPolyfill) {
             Platform.ShadowCSS.shimShadowDOMStyling([style], inNode.localName);
@@ -128,7 +128,7 @@ license that can be found in the LICENSE file.
         }
       },
       Polymer('g-app', {
-        created: function() {
+        enteredDocument: function() {
           ensureHostStyles(this);
         }
       });

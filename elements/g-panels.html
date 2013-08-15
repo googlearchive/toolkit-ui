@@ -115,7 +115,7 @@ license that can be found in the LICENSE file.
       defaultTransition: 'keyframe',
       _canTransition: false,
       created: function() {
-        this.initPanels();
+        //this.initPanels();
         this.observeChildren();
         if (!this.hasAttribute('tabindex')) {
           this.tabIndex = -1;
@@ -123,8 +123,8 @@ license that can be found in the LICENSE file.
       },
       enteredDocument: function() {
         this.installControllerStyles(this, element);
+        this.initPanels();
         this.enableTransitions(false);
-        this.flushChildrenMutations();
         if (this.index === -1 && this.selected === null) {
           this.indexChanged();
         }
@@ -203,7 +203,7 @@ license that can be found in the LICENSE file.
         // TODO(sorvell): dirtyCheck before we sent the canSelect event since
         // it's likely that the decision needs to rely on binding state.
         // consider doing this in g-component.send.
-        dirtyCheck();
+        Platform.flush();
         this.fire('g-panels-canselect', {
           index: inIndex, 
           selected: this.selectedValueForIndex(inIndex),
@@ -252,12 +252,15 @@ license that can be found in the LICENSE file.
             this.transitionNode.teardown();
           }
           this.transitionNode = this.makeTransitionNode(this.transition);
-          this.setAttribute('transition', this.transition);
+          //this.setAttribute('transition', this.transition);
         }
         this.transitionNode.setup(this);
         this.refresh();
       },
       findTransitionNode: function() {
+        if (!this.$.content) {
+          return;
+        }
         var n$ = this.$.content.getDistributedNodes();
         for (var i=0, n; n=n$[i]; i++) {
           if (this.isTransitionNode(n)) {
@@ -377,7 +380,7 @@ license that can be found in the LICENSE file.
        * @returns {Array}
        */
       getPanels: function() {
-        var n$ = this.$.content.getDistributedNodes();
+        var n$ = this.$.content ? this.$.content.getDistributedNodes() : [];
         return Array.prototype.filter.call(n$, this.nodeIsPanel, this);
       },
       nodeIsPanel: function(node) {
