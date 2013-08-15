@@ -46,7 +46,7 @@ license that can be found in the LICENSE file.
       }
       
       Polymer('g-tabpanels', {
-        ready: function() {
+        created: function() {
           // TODO(sorvell): import styling from panels... this should be @host-ified
           this.installControllerStyles(this, this.elementElement);
           this.classList.add('flexbox', 'col');

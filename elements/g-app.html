@@ -52,7 +52,7 @@ license that can be found in the LICENSE file.
  *       </template>
  *       <script>
  *         Polymer('my-app', {
- *           ready: function() {
+ *           created: function() {
  *             this.super(arguments);
  *             console.log('app ready!');
  *           },
@@ -128,7 +128,7 @@ license that can be found in the LICENSE file.
         }
       },
       Polymer('g-app', {
-        ready: function() {
+        created: function() {
           ensureHostStyles(this);
         }
       });

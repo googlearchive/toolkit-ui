@@ -114,14 +114,14 @@ license that can be found in the LICENSE file.
       autoSelect: false,
       defaultTransition: 'keyframe',
       _canTransition: false,
-      ready: function() {
+      created: function() {
         this.initPanels();
         this.observeChildren();
         if (!this.hasAttribute('tabindex')) {
           this.tabIndex = -1;
         }
       },
-      inserted: function() {
+      enteredDocument: function() {
         this.installControllerStyles(this, element);
         this.enableTransitions(false);
         this.flushChildrenMutations();
