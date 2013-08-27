@@ -107,6 +107,9 @@
         // inIndex appears at the left with subsequent nodes
         // moved out of the way to the right; right aligned nodes are ignored
         applyLeftLayout: function(inTo, inIndex) {
+          if (!inTo) {
+            return;
+          }
           var l, count = this.count;
           this.panels.getPanels().forEach(function(p, i) {
             var x = !l ? 0 : l.offsetWidth + 'px';
