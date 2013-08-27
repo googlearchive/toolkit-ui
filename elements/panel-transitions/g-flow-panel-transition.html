@@ -30,10 +30,6 @@
   </template>
   <script>
     (function() {
-      var isNodeHidden = function(inNode) {
-        return (inNode.offsetWidth) == 0 && (inNode.offsetHeight == 0);
-      }
-      
       var WEBKIT_END_EVENT = 'webkitTransitionEnd';
       var END_EVENT = 'transitionEnd';
       
@@ -79,9 +75,6 @@
           this.panels.getPanels().forEach(function(p) {
             p.style.webkitTransition = p.style.transition = inEnable ? null : 'none';
           });
-        },
-        canTransition: function() {
-          return !isNodeHidden(this.panels);
         },
         resizeHandler: function(e) {
           if (this.narrowLayout && !this.resizing) {
