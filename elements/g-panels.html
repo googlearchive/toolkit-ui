@@ -115,8 +115,6 @@ license that can be found in the LICENSE file.
       defaultTransition: 'keyframe',
       _canTransition: false,
       created: function() {
-        //this.initPanels();
-        this.observeChildren();
         if (!this.hasAttribute('tabindex')) {
           this.tabIndex = -1;
         }
@@ -129,7 +127,7 @@ license that can be found in the LICENSE file.
           this.indexChanged();
         }
         this.enableTransitions(true);
-      
+        this.observeChildren();
       },
       initPanels: function() {
         this.getPanels().forEach(function(p, i) {
