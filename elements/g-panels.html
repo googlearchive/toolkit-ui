@@ -198,7 +198,7 @@ license that can be found in the LICENSE file.
       },
       canSelect: function(inIndex) {
         var canSelect = true;
-        // TODO(sorvell): dirtyCheck before we sent the canSelect event since
+        // TODO(sorvell): Platform.flush(); before we sent the canSelect event since
         // it's likely that the decision needs to rely on binding state.
         // consider doing this in g-component.send.
         Platform.flush();
@@ -326,8 +326,8 @@ license that can be found in the LICENSE file.
           } else if (e.keyCode == LEFT_ARROW_KEY) {
             this.previous();
           }
-          // TODO(sorvell): dirtyCheck so we know syncronously if index changed.
-          dirtyCheck();
+          // TODO(sorvell): Platform.flush() so we know syncronously if index changed.
+          Platform.flush();
           if (this.index != oldIndex) {
             e.cancelBubble = true;
             this.focus();

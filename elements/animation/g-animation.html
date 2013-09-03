@@ -137,7 +137,7 @@
         play: function() {
           // TODO: need to dirty check to make sure all side effects are
           // applied before playing the animation.
-          window.dirtyCheck();
+          Platform.flush();
           this.completeApply();
           //this.animation && console.log('play', this.animation);
           if (this.animation) {

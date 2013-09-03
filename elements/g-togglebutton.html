@@ -62,11 +62,11 @@ license that can be found in the LICENSE file.
         this.$.toggle.classList.remove('dragging');
         this.value = Math.abs(this.x) < this.w / 2;
         // make valueChanged calls immediately
-        dirtyCheck();
+        Platform.flush();
       },
       flick: function(e) {
         this.value = e.xVelocity > 0;
-        dirtyCheck();
+        Platform.flush();
       }
     });
   </script>

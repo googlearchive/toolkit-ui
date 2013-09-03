@@ -59,7 +59,7 @@
           this.doOnChildren(function(c) {
             c.completeApply();
           });
-          window.dirtyCheck();
+          Platform.flush();
           this.super(arguments);
         },
         onAnimationChange: function(inEvent, inSender) {
