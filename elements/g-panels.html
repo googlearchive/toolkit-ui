@@ -113,6 +113,7 @@ license that can be found in the LICENSE file.
       index: -1,
       autoSelect: false,
       defaultTransition: 'keyframe',
+      hideClass: 'hidden',
       _canTransition: false,
       created: function() {
         if (!this.hasAttribute('tabindex')) {
@@ -367,7 +368,7 @@ license that can be found in the LICENSE file.
       // setting e.g. hidden + display: -webkit-flex == showing.
       enablePanelShowing: function(inPanel, inEnable) {
         if (inPanel) {
-          inPanel.style.display = inEnable ? null : 'none';
+          inPanel.classList.toggle(this.hideClass, !inEnable);
         }
       },
       /**

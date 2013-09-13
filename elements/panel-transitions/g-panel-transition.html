@@ -35,6 +35,9 @@
         if (this.transitionClass) {
           inPanel.classList.add(this.transitionClass);
         }
+        if (this.highlander) {
+          inPanel.classList.add(this.panels.hideClass);
+        }
       },
       teardownPanel: function(inPanel, inIndex) {
         inPanel.classList.remove(this.transitionClass);  

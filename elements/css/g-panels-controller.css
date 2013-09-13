@@ -26,6 +26,10 @@ g-panels > * {
   transform: translateZ(0);
 }
 
+g-panels > .hidden {
+  display: none !important;
+}
+
 g-panels > g-panels {
   position: absolute;
 }
