@@ -87,9 +87,11 @@ license that can be found in the LICENSE file.
         /* layout content using flexbox */
         display: -webkit-box;
         display: -webkit-flex;
+        display: -ms-flexbox;
         display: flex;
         -webkit-box-orient: vertical;
         -webkit-flex-flow: column;
+        -ms-flex-direction: column;
         flex-direction: column;
         
         /* convenient defaults */
@@ -102,6 +104,7 @@ license that can be found in the LICENSE file.
     .flex {
       -webkit-box-flex: 1;
       -webkit-flex: 1;
+      -ms-flex: 1;
       flex: 1;
     }
 
@@ -109,6 +112,7 @@ license that can be found in the LICENSE file.
     content::-webkit-distributed(.flex) {
       -webkit-box-flex: 1;
       -webkit-flex: 1;
+      -ms-flex: 1;
       flex: 1;
     }
   </style>
