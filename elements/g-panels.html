@@ -115,7 +115,7 @@ license that can be found in the LICENSE file.
       defaultTransition: 'keyframe',
       hideClass: 'hidden',
       _canTransition: false,
-      created: function() {
+      ready: function() {
         if (!this.hasAttribute('tabindex')) {
           this.tabIndex = -1;
         }

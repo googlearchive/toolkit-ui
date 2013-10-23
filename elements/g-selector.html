@@ -106,7 +106,7 @@ license that can be found in the LICENSE file.
        * @default null
        */
       selectedModel: null,
-      created: function() {
+      ready: function() {
         this.setAttribute('touch-action', 'none');
       },
       get items() {
@@ -281,7 +281,7 @@ license that can be found in the LICENSE file.
       itemsSelector: '',
       activateEvent: 'tap',
       notap: false,
-      created: function() {
+      ready: function() {
         this.activateListener = this.activateHandler.bind(this);
         this.observer = new MutationObserver(this.updateSelected.bind(this));
         if (!this.target) {
