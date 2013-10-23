@@ -23,7 +23,7 @@
     <!-- {{ label }} is replaced by the value of the label property -->
     <!-- touch-action="none" allows Pointer Events and Gestures -->
     <!-- on-tap attribute maps the tap gesture to the labelTap function -->
-    <span id="label" touch-action="none" on-tap="labelTap">{{ label }}</span>
+    <span id="label" touch-action="none" on-tap="{{labelTap}}">{{ label }}</span>
     <!-- <content> is replaced by children of <x-element> -->
     <content></content>
   </template>

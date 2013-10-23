@@ -34,9 +34,9 @@
         border-top-width: 1px;
       }
     </style>
-    <div id="label" on-tap="toggle">{{$.selector.selection.textContent}}</div>
+    <div id="label" on-tap="{{toggle}}">{{$.selector.selection.textContent}}</div>
     <g-overlay id="container" opened="{{opened}}">
-      <g-selector id="selector" selected="{{selected}}" on-activate="toggle" opened="{{opened}}">
+      <g-selector id="selector" selected="{{selected}}" on-activate="{{toggle}}" opened="{{opened}}">
         <content select="*"></content>
       </g-selector>
     </g-overlay>
