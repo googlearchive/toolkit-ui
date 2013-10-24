@@ -49,7 +49,7 @@ license that can be found in the LICENSE file.
       }
     </style>
     <template repeat="{{stars}}">
-      <span index="{{index}}" class="star {{starClass}}" touch-action="none" on-tap="starClick"></span>
+      <span index="{{index}}" class="star {{starClass}}" touch-action="none" on-tap="{{starClick}}"></span>
     </template>
   </template>
   <script>
@@ -70,7 +70,7 @@ license that can be found in the LICENSE file.
        * @default 0
        */
       value: 0,
-      created: function() {
+      ready: function() {
         this.countChanged();
       },
       countChanged: function() {

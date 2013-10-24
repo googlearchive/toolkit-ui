@@ -13,9 +13,9 @@ license that can be found in the LICENSE file.
  * Example:
  *
  *     <g-toolbar>
- *       <g-icon-button src="menu.png" on-click="menuAction"></g-icon-button>
+ *       <g-icon-button src="menu.png" on-click="{{menuAction}}"></g-icon-button>
  *       <div class="flex">Title</div>
- *       <g-icon-button src="more.png" on-click="moreAction"></g-icon-button>
+ *       <g-icon-button src="more.png" on-click="{{moreAction}}"></g-icon-button>
  *     </g-toolbar>
  *
  * @class g-toolbar
@@ -85,7 +85,7 @@ license that can be found in the LICENSE file.
   <script>
     Polymer('g-toolbar', {
       responsive: false,
-      created: function() {
+      ready: function() {
         this.setAttribute('touch-action', 'none');
       }
     });

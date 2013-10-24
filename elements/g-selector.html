@@ -15,7 +15,7 @@ license that can be found in the LICENSE file.
  *
  * Example:
  *
- *     <g-selector selected="0" on-activate="activateHandler">
+ *     <g-selector selected="0" on-activate="{{activateHandler}}">
  *       <div>Item 1</div>
  *       <div>Item 2</div>
  *       <div>Item 3</div>
@@ -47,9 +47,9 @@ license that can be found in the LICENSE file.
  */
 -->
 <link rel="import" href="g-selection.html">
-<!--<polymer-element name="g-selector" on-tap="activateHandler" attributes="selected selectedClass selectedModel multi valueattr notap">
+<!--<polymer-element name="g-selector" on-tap="{{activateHandler}}" attributes="selected selectedClass selectedModel multi valueattr notap">
   <template>
-    <g-selection id="selection" multi="{{multi}}" on-select="selectionSelect"></g-selection>
+    <g-selection id="selection" multi="{{multi}}" on-select="{{selectionSelect}}"></g-selection>
     <content id="items" select="*"></content>
   </template>
   <script>
@@ -106,7 +106,7 @@ license that can be found in the LICENSE file.
        * @default null
        */
       selectedModel: null,
-      created: function() {
+      ready: function() {
         this.setAttribute('touch-action', 'none');
       },
       get items() {
@@ -181,7 +181,7 @@ license that can be found in the LICENSE file.
 <polymer-element name="g-selector"
     attributes="selected multi valueattr selectedClass selectedProperty selectedItem selectedModel notap target itemsSelector activateEvent">
   <template>
-    <g-selection id="selection" multi="{{multi}}" on-select="selectionSelect"></g-selection>
+    <g-selection id="selection" multi="{{multi}}" on-select="{{selectionSelect}}"></g-selection>
     <content id="items" select="*"></content>
   </template>
   <script>
@@ -281,7 +281,7 @@ license that can be found in the LICENSE file.
       itemsSelector: '',
       activateEvent: 'tap',
       notap: false,
-      created: function() {
+      ready: function() {
         this.activateListener = this.activateHandler.bind(this);
         this.observer = new MutationObserver(this.updateSelected.bind(this));
         if (!this.target) {

@@ -19,7 +19,7 @@ license that can be found in the LICENSE file.
  */
 -->
 <polymer-element name="g-togglebutton" attributes="value"
-    on-tap="toggle" on-trackstart="trackStart" on-track="track" on-trackend="trackEnd" on-flick="flick">
+    on-tap="{{toggle}}" on-trackstart="{{trackStart}}" on-track="{{track}}" on-trackend="{{trackEnd}}" on-flick="{{flick}}">
   <template>
     <link rel="stylesheet" href="css/g-togglebutton.css" />
     <div id="toggle" class="toggle">
@@ -38,7 +38,7 @@ license that can be found in the LICENSE file.
        * @default false
        */
       value: false,
-      created: function() {
+      ready: function() {
         this.setAttribute('touch-action', 'none');
       },
       toggle: function() {

@@ -1,5 +1,5 @@
 <link rel="import" href="g-animation.html">
-<polymer-element name="g-animation-group" extends="g-animation" on-animationchange="onAnimationChange">
+<polymer-element name="g-animation-group" extends="g-animation" on-animationchange="{{onAnimationChange}}">
   <script>
     (function() {
       var ANIMATION_GROUPS = {
@@ -48,7 +48,7 @@
            */
           type: 'par'
         },
-        created: function() {
+        ready: function() {
           // TODO: need to do this for now.
           this.super();
         },

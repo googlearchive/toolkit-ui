@@ -1,4 +1,4 @@
-<polymer-element name="g-radio" on-tap="select">
+<polymer-element name="g-radio" on-tap="{{select}}">
   <template>
     <style>
       @host {
@@ -16,7 +16,7 @@
   </template>
   <script>
     Polymer('g-radio', {
-      created: function() {
+      ready: function() {
         this.setAttribute('touch-action', 'none');
       },
       select: function() {

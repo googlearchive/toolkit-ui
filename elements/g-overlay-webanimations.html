@@ -14,7 +14,7 @@
         }
       }
     </style>
-    <g-animation-group id="scale" duration="0.218" on-complete="completeOpening">
+    <g-animation-group id="scale" duration="0.218" on-complete="{{completeOpening}}">
       <g-animation duration="0.218">
         <g-property name="transform">
           <g-keyframe value="scale(1.05)"></g-keyframe>
@@ -76,7 +76,7 @@
       publish: {
         animation: 'scale-slideup'
       },
-      created: function() {
+      ready: function() {
         this.$.scale.target = this;
         this.$.slideUp.target = this;
         this.$.shakeFadeIn.target = this;
